@@ -1,0 +1,15 @@
+{
+  "name": "utc-date",
+  "version": "0.0.1",
+  "description": "Experimental Date object overwrite for always using UTC dates.",
+  "type": "module",
+  "main": "load.js",
+  "scripts": {
+    "test": "node tester.js"
+  },
+  "author": "jhmaster",
+  "license": "ISC",
+  "dependencies": {
+    "set-tz": "^0.2.0"
+  }
+}
