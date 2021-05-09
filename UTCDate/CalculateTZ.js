@@ -10,7 +10,6 @@ export default function UTCDateCalculateTZ(offs) {
 
     let dir = '-';
     if (h < 0) dir = '+';
-
     if (!hstr.includes('.')) return `GMT${dir}${hstr}00`;
 
     let mstr = UTCDatePadNumbers(mabs - (Math.floor((mabs - 1) / 60) * 60));
