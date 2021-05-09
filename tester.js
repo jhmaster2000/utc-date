@@ -1,6 +1,3 @@
-import setTZ from 'set-tz';
-//setTZ('Australia/Darwin');
-
 import util from 'util';
 import { NativeDate } from './load.js';
 

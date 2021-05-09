@@ -1,5 +1,3 @@
-import UTCDatePadNumbers from '../PadNumbers.js';
-
 export default function UTCDateToLocaleTimeString(UTC, locale, opts) {
     if (!locale) locale = 'en-GB';
     if (!opts) opts = {};
