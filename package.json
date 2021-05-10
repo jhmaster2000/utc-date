@@ -22,7 +22,9 @@
   "keywords": [
     "utc",
     "date",
+    "utcdate",
     "utc-date",
+    "gmtdate",
     "gmt-date",
     "gmt",
     "time"
