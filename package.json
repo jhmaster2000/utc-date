@@ -10,5 +10,21 @@
   },
   "author": "jhmaster",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhmaster2000/utc-date.git"
+  },
+  "homepage": "https://github.com/jhmaster2000/utc-date#readme",
+  "bugs": {
+    "url": "https://github.com/jhmaster2000/utc-date/issues"
+  },
+  "keywords": [
+    "utc",
+    "date",
+    "utc-date",
+    "gmt-date",
+    "gmt",
+    "time"
+  ]
 }
