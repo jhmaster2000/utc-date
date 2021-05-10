@@ -11,11 +11,11 @@ On MacOS and Linux, if you wanted to achieve this, all you need to do is set `pr
 #### Ok but this code is terrible!
 Feel free to improve it and make a PR. Bug reports are always welcome too.
 
-> [**Updates Changelog**](/CHANGELOG.md)
+> [**Updates Changelog**](https://github.com/jhmaster2000/utc-date/blob/master/CHANGELOG.md)
 
 ## Installing
 ```
-npm i jhmaster2000/utc-date
+npm i utc-date --save
 ```
 
 ## Usage
