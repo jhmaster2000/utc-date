@@ -34,7 +34,9 @@ import { NativeDate } from 'utc-date'
 ```
 Keep in mind that unlike the `Date` overwrite, this is not global and `NativeDate` will only be accessible on the file it's imported on.
 
-### Small Caveat
+### Small Caveats
 Due to being unable to put the overwritten `Date` functions in the prototype due it also propagating to the `NativeDate` object (maybe there is a way to do it without this happening, but I couldn't figure it out myself), all the overwritten `Date` functions will show up when you print the raw `Date` object directly or util.inspect() it, instead of just showing the ISO string.
 
-However this shouldn't be too big of an issue since you are never meant to interact directly with the `Date` object in this way on your code, if it does present itself as an issue to you or you know a way to fix this without worse side-effects, please do let me know.
+The ISO string is also lost from the raw object, even the `NativeDate` one, which prints just a visually empty object instead: `{}`
+
+However these shouldn't be too big of an issue since you are never meant to interact directly with the `Date` object in this way on your code, if these do represent an issue to you or you know a way to fix these without worse side-effects, please do let me know.
