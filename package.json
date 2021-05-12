@@ -1,6 +1,6 @@
 {
   "name": "utc-date",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Experimental Date object overwrite for always using UTC dates.",
   "type": "module",
   "main": "load.js",
@@ -27,6 +27,7 @@
     "gmtdate",
     "gmt-date",
     "gmt",
-    "time"
+    "time",
+    "datetime"
   ]
 }

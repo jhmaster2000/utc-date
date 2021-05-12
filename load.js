@@ -1,15 +1,19 @@
 import { UTCDate, NativeDate } from './UTCDate/Class.js';
+import UTCDateParse from './UTCDate/Parse.js';
 
-function UTCDateFunc(...ctorParams) {
+function UTCDateCaller(...ctorParams) {
     if (this === undefined) return new UTCDate().toString();
-    return new UTCDate(...ctorParams);
+    let aUTCDate = new UTCDate(...ctorParams);
+    aUTCDate.__proto__ = NativeDate.prototype;
+    aUTCDate.__proto__.constructor = NativeDate.prototype;
+    aUTCDate.__proto__.__proto__ = this.__proto__;
+    aUTCDate.__proto__.__proto__.constructor = this.__proto__;
+    return aUTCDate;
 }
+UTCDateCaller.__proto__.now = () => { return NativeDate.now(); }
+UTCDateCaller.__proto__.UTC = (...params) => { return NativeDate.UTC(...params); }
+UTCDateCaller.__proto__.parse = (...params) => { return UTCDateParse(...params); }
 
-UTCDateFunc.__proto__.now = () => { return UTCDate.now(); }
-UTCDateFunc.__proto__.UTC = (...params) => { return UTCDate.UTC(...params); }
-UTCDateFunc.__proto__.parse = (...params) => { return UTCDate.parse(...params); }
+Date = UTCDateCaller;
 
-Date = UTCDateFunc;
-
-export { NativeDate, UTCDateFunc as UTCDate }
-export default NativeDate
+export { NativeDate, UTCDateCaller as UTCDate }

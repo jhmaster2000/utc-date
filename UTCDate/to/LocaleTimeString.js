@@ -1,3 +1,5 @@
+import NativeDate from '../../NativeDate.js'
+
 export default function UTCDateToLocaleTimeString(UTC, locale, opts) {
     if (!locale) locale = 'en-GB';
     if (!opts) opts = {};
@@ -11,5 +13,6 @@ export default function UTCDateToLocaleTimeString(UTC, locale, opts) {
     if (!opts.timeZone) opts.timeZone = 'UTC';
     if (!opts.timeZoneName) opts.timeZoneName = undefined;
 
-    return UTC.toLocaleTimeString(locale, opts);
+    let UTCCopy = new NativeDate(UTC.valueOf());
+    return UTCCopy.toLocaleTimeString(locale, opts);
 }

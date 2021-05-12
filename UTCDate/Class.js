@@ -1,5 +1,4 @@
-import cloneObject from '../cloneObject.js';
-const NativeDate = cloneObject(Date);
+import NativeDate from '../NativeDate.js';
 
 import UTCDateCalculateTZ from './CalculateTZ.js';
 import UTCDateToString from './to/String.js';
@@ -11,49 +10,48 @@ import UTCDateToLocaleString from './to/LocaleString.js';
 import UTCDateToLocaleTimeString from './to/LocaleTimeString.js';
 import UTCDateToLocaleDateString from './to/LocaleDateString.js';
 
-class UTCDate extends Date {
+class UTCDate extends NativeDate {
     constructor(...ctorParams) {
         super(...ctorParams);
-        let NewUTCDate = new NativeDate(...ctorParams);
-        
+                
         const UTCDateInternals = {};
         UTCDateInternals.UTCOffsets = {
-            ms: (NewUTCDate.getTimezoneOffset() * 60000),
-            secs: (NewUTCDate.getTimezoneOffset() * 60),
-            mins: NewUTCDate.getTimezoneOffset(),
-            hours: (NewUTCDate.getTimezoneOffset() / 60)
+            ms: (this.getTimezoneOffset() * 60000),
+            secs: (this.getTimezoneOffset() * 60),
+            mins: this.getTimezoneOffset(),
+            hours: (this.getTimezoneOffset() / 60)
         }
         UTCDateInternals.UTCTimezone = UTCDateCalculateTZ(UTCDateInternals.UTCOffsets);
 
-        NewUTCDate.getTimezoneOffset = () => { return 0; }
-        NewUTCDate.toString = () => { return UTCDateToString(this); }
-        NewUTCDate.toTimeString = () => { return UTCDateToTimeString(this); }
-        NewUTCDate.toDateString = () => { return UTCDateToDateString(this); }
-        NewUTCDate.toUTCString = () => { return UTCDateToUTCString(this); }
-        NewUTCDate.toISOString = () => { return UTCDateToISOString(this); }
-        NewUTCDate.toJSON = () => { return UTCDateToISOString(this); }
-        NewUTCDate.toLocaleString = (...params) => { return UTCDateToLocaleString(this, ...params); }
-        NewUTCDate.toLocaleTimeString = (...params) => { return UTCDateToLocaleTimeString(this, ...params); }
-        NewUTCDate.toLocaleDateString = (...params) => { return UTCDateToLocaleDateString(this, ...params); }
+        this.getTimezoneOffset = () => { return 0; }
+        this.toString = () => { return UTCDateToString(this); }
+        this.toTimeString = () => { return UTCDateToTimeString(this); }
+        this.toDateString = () => { return UTCDateToDateString(this); }
+        this.toUTCString = () => { return UTCDateToUTCString(this); }
+        this.toISOString = () => { return UTCDateToISOString(this); }
+        this.toJSON = () => { return UTCDateToISOString(this); }
+        this.toLocaleString = (...params) => { return UTCDateToLocaleString(this, ...params); }
+        this.toLocaleTimeString = (...params) => { return UTCDateToLocaleTimeString(this, ...params); }
+        this.toLocaleDateString = (...params) => { return UTCDateToLocaleDateString(this, ...params); }
 
-        NewUTCDate.getFullYear = () => { return this.getUTCFullYear(); }
-        NewUTCDate.getMonth = () => { return this.getUTCMonth(); }
-        NewUTCDate.getDate = () => { return this.getUTCDate(); }
-        NewUTCDate.getDay = () => { return this.getUTCDay(); }
-        NewUTCDate.getHours = () => { return this.getUTCHours(); }
-        NewUTCDate.getMinutes = () => { return this.getUTCMinutes(); }
-        NewUTCDate.getSeconds = () => { return this.getUTCSeconds(); }
-        NewUTCDate.getMilliseconds = () => { return this.getUTCMilliseconds(); }
+        this.getFullYear = () => { return this.getUTCFullYear(); }
+        this.getMonth = () => { return this.getUTCMonth(); }
+        this.getDate = () => { return this.getUTCDate(); }
+        this.getDay = () => { return this.getUTCDay(); }
+        this.getHours = () => { return this.getUTCHours(); }
+        this.getMinutes = () => { return this.getUTCMinutes(); }
+        this.getSeconds = () => { return this.getUTCSeconds(); }
+        this.getMilliseconds = () => { return this.getUTCMilliseconds(); }
         
-        NewUTCDate.setFullYear = (...params) => { return this.setUTCFullYear(...params); }
-        NewUTCDate.setMonth = (...params) => { return this.setUTCMonth(...params); }
-        NewUTCDate.setDate = (...params) => { return this.setUTCDate(...params); }
-        NewUTCDate.setHours = (...params) => { return this.setUTCHours(...params); }
-        NewUTCDate.setMinutes = (...params) => { return this.setUTCMinutes(...params); }
-        NewUTCDate.setSeconds = (...params) => { return this.setUTCSeconds(...params); }
-        NewUTCDate.setMilliseconds = (...params) => { return this.setUTCMilliseconds(...params); }
+        this.setFullYear = (...params) => { return this.setUTCFullYear(...params); }
+        this.setMonth = (...params) => { return this.setUTCMonth(...params); }
+        this.setDate = (...params) => { return this.setUTCDate(...params); }
+        this.setHours = (...params) => { return this.setUTCHours(...params); }
+        this.setMinutes = (...params) => { return this.setUTCMinutes(...params); }
+        this.setSeconds = (...params) => { return this.setUTCSeconds(...params); }
+        this.setMilliseconds = (...params) => { return this.setUTCMilliseconds(...params); }
 
-        return NewUTCDate;
+        return this;
     }
 }
 

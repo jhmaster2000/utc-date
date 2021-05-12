@@ -1,5 +1,5 @@
 import util from 'util';
-import { NativeDate } from './load.js';
+import { NativeDate, UTCDate } from './load.js';
 
 function compareCtorMethod(method) {
     return console.log(`${method}: ${new Date()[method]()} vs ${new NativeDate()[method]()}`);
@@ -7,7 +7,19 @@ function compareCtorMethod(method) {
 function compareMethod(method) {
     return console.log(`.${method}: ${Date[method]()} vs ${NativeDate[method]()}`);
 }
+function compareInstances(thing) {
+    let func = thing instanceof Function
+    let objc = thing instanceof Object
+    let strg = thing instanceof String
+    let date = thing instanceof Date
+    let natd = thing instanceof NativeDate
+    let utcd = thing instanceof UTCDate
+    console.log('instanceof\'s:', func, objc, strg, date, natd, utcd);
+}
 
+compareInstances(new Date());
+compareInstances(new UTCDate());
+compareInstances(new NativeDate());
 console.log('========[UTCDate vs NativeDate]========');
 console.log('Method: UTCDate vs NativeDate\n');
 compareCtorMethod('getUTCFullYear');
@@ -50,8 +62,7 @@ console.log('Date:', Date, 'vs', NativeDate);
 console.log('Date():', Date(), 'vs', NativeDate());
 console.log('new Date:', new Date, 'vs', new NativeDate);
 console.log('new Date():', new Date(), 'vs', new NativeDate());
-console.log('Date(x):', Date(1620134814329), 'vs', NativeDate(1620134814329));
-console.log('new Date(x):', new Date(1620134814329), 'vs', new NativeDate(1620134814329));
+console.log('new Date(x):', new Date(162013481432).toString(), 'vs', new NativeDate(162013481432).toString());
 compareMethod('now');
 compareMethod('UTC');
 compareMethod('parse');
