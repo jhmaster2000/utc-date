@@ -1,6 +1,6 @@
 import NativeDate from '../NativeDate.js';
 
-import UTCDateCalculateTZ from './CalculateTZ.js';
+//import UTCDateCalculateTZ from './CalculateTZ.js';
 import UTCDateToString from './to/String.js';
 import UTCDateToTimeString from './to/TimeString.js';
 import UTCDateToDateString from './to/DateString.js';
@@ -14,14 +14,14 @@ class UTCDate extends NativeDate {
     constructor(...ctorParams) {
         super(...ctorParams);
                 
-        const UTCDateInternals = {};
+        /*const UTCDateInternals = {};
         UTCDateInternals.UTCOffsets = {
             ms: (this.getTimezoneOffset() * 60000),
             secs: (this.getTimezoneOffset() * 60),
             mins: this.getTimezoneOffset(),
             hours: (this.getTimezoneOffset() / 60)
         }
-        UTCDateInternals.UTCTimezone = UTCDateCalculateTZ(UTCDateInternals.UTCOffsets);
+        UTCDateInternals.UTCTimezone = UTCDateCalculateTZ(UTCDateInternals.UTCOffsets);*/
 
         this.getTimezoneOffset = () => { return 0; }
         this.toString = () => { return UTCDateToString(this); }
