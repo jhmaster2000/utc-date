@@ -48,6 +48,16 @@ import { NativeDate } from 'utc-date'
 ```
 Keep in mind that unlike the `Date` overwrite, this is not global and `NativeDate` will only be accessible on the file it's imported on.
 
+### Using without overwriting the native Date object
+If for some reason you prefer to use the `UTCDate` class directly instead of overwriting the native `Date`, you can simply revert the overwrite after importing by using the code below:
+```js
+import { NativeDate, UTCDate } from 'utc-date'
+Date = NativeDate
+```
+- Both `Date` and `NativeDate` will now be accessible as the native `Date` object.
+- The **utc-date** object will now be accessible through `UTCDate` with the same syntax used on the normal `Date` object.
+- You can import and use `UTCDate` without reverting `Date` back to native, but there isn't really a point in doing so.
+
 ### Small Caveats
 Due to being unable to put the overwritten `Date` functions in the prototype due it also propagating to the `NativeDate` object (maybe there is a way to do it without this happening, but I couldn't figure it out myself), all the overwritten `Date` functions will show up when you print the raw `Date` object directly or util.inspect() it, instead of just showing the ISO string.
 
