@@ -1,21 +1,20 @@
 {
   "name": "utc-date",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Experimental Date object overwrite for always using UTC dates.",
   "type": "module",
   "main": "load.js",
   "scripts": {
     "start": "node load.js",
-    "test": "node tester.js"
+    "test": "rm -rf coverage/ && cross-env NODE_OPTIONS=--experimental-vm-modules npx jest --coverage --coverageProvider=v8 --coverageDirectory='coverage'"
   },
   "author": "jhmaster",
   "license": "ISC",
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jhmaster2000/utc-date.git"
   },
-  "homepage": "https://github.com/jhmaster2000/utc-date#readme",
+  "homepage": "https://www.npmjs.com/package/utc-date",
   "bugs": {
     "url": "https://github.com/jhmaster2000/utc-date/issues"
   },
@@ -29,5 +28,24 @@
     "gmt",
     "time",
     "datetime"
-  ]
+  ],
+  "jest": {
+    "transform": {},
+    "coverageReporters": [
+      "html",
+      "text",
+      "lcov",
+      "lcovonly",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "./{!(cloneObject),}.js",
+      "./UTCDate/{!(CalculateTZ|PadMs),}.js",
+      "./UTCDate/to/**"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^26.6.3"
+  }
 }
