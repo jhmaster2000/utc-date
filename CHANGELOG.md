@@ -1,7 +1,7 @@
 # Changelog
 
-## Version 0.0.6
-- No user-side changes, only repository optimizations.
+## Version 0.0.6 + 0.0.7
+- No user-side changes, only repository optimizations. (0.0.7: Minor package.json issue fix)
 
 ## Version 0.0.5
 - No user-side changes, only repository optimizations.

@@ -1,6 +1,6 @@
 {
   "name": "utc-date",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Experimental Date object overwrite for always using UTC / GMT date and time.",
   "type": "module",
   "main": "load.js",
@@ -58,6 +58,6 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "/{!(.travis.yml|.gitignore|coverage|tests|*.tgz),}"
+    "/{!(.gitignore|coverage|*.tgz),}"
   ]
 }
