@@ -14,6 +14,8 @@ Experimental Date object overwrite for always using UTC dates by default.
 - Windows = Node.js 12.x, 13.x, 14.x, 15.x and 16.x with ESM
 - Linux = Node.js 12.x and 14.x with ESM
 
+> **Guaranteed to NOT work on Node.js 11.x and lower, this won't be fixed.**
+
 ## Why?
 On MacOS and Linux, if you wanted to achieve this, all you need to do is set `process.env.TZ` to `Etc/GMT`, however Windows does not respect this, forcing you to either change your entire system's timezone with a package like `set-tz`, which personally I found vastly inconvenient when trying to selfhost apps on my personal computer, or overwritting the entire `Date` object to force it to output only UTC values, which is what this package does for you.
 

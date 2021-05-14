@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 0.0.5
+- No user-side changes, only repository optimizations.
+
 ## Version 0.0.4
 - More code cleanup and optimizations.
 - Fixed all the date objects' instances not returning `true` when matched against `Date` with `instanceof`.
