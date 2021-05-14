@@ -1,12 +1,22 @@
 # utc-date
+
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/jhmaster2000/utc-date)](https://github.com/jhmaster2000/utc-date)
+[![npm](https://img.shields.io/npm/v/utc-date?color=darkred&label=latest%20npm%20release)](https://www.npmjs.com/package/utc-date)
+[![npm](https://img.shields.io/npm/dw/utc-date)](https://www.npmjs.com/package/utc-date)
+[![NPM](https://img.shields.io/npm/l/utc-date)](https://www.npmjs.com/package/utc-date)
+[![Build Status](https://travis-ci.com/jhmaster2000/utc-date.svg?branch=master)](https://travis-ci.com/jhmaster2000/utc-date)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date)](https://github.com/jhmaster2000/utc-date)
+
 Experimental Date object overwrite for always using UTC dates by default.
 
-**Tested on:** Node.js 14.x with ESM
+**Tested on:**
+- Windows = Node.js 12.x, 13.x, 14.x, 15.x and 16.x with ESM
+- Linux = Node.js 12.x and 14.x with ESM
 
 ## Why?
 On MacOS and Linux, if you wanted to achieve this, all you need to do is set `process.env.TZ` to `Etc/GMT`, however Windows does not respect this, forcing you to either change your entire system's timezone with a package like `set-tz`, which personally I found vastly inconvenient when trying to selfhost apps on my personal computer, or overwritting the entire `Date` object to force it to output only UTC values, which is what this package does for you.
 
-**This package does work on MacOS and Linux, but it is only truly needed on Windows.*
+**This package probably does work on MacOS (untested) and Linux, but it is only truly needed on Windows.*
 
 #### Ok but this code is terrible!
 Feel free to improve it and make a PR. Bug reports are always welcome too.
