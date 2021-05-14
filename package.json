@@ -1,7 +1,7 @@
 {
   "name": "utc-date",
   "version": "0.0.6",
-  "description": "Experimental Date object overwrite for always using UTC dates.",
+  "description": "Experimental Date object overwrite for always using UTC / GMT date and time.",
   "type": "module",
   "main": "load.js",
   "scripts": {
@@ -9,11 +9,11 @@
     "test": "rm -rf coverage/ && cross-env NODE_OPTIONS=--experimental-vm-modules npx jest --coverage --coverageProvider=v8",
     "coverage": "npm test && cat ./coverage/lcov.info | npx coveralls"
   },
-  "author": "jhmaster",
+  "author": "jhmaster (https://github.com/jhmaster2000)",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhmaster2000/utc-date.git"
+    "url": "https://github.com/jhmaster2000/utc-date.git"
   },
   "homepage": "https://www.npmjs.com/package/utc-date",
   "bugs": {
@@ -21,14 +21,18 @@
   },
   "keywords": [
     "utc",
-    "date",
-    "utcdate",
-    "utc-date",
-    "gmtdate",
-    "gmt-date",
     "gmt",
+    "date",
     "time",
-    "datetime"
+    "datetime",
+    "utcdate",
+    "gmtdate",
+    "dateutc",
+    "dategmt",
+    "utc-date",
+    "gmt-date",
+    "date-utc",
+    "date-gmt"
   ],
   "jest": {
     "transform": {},
@@ -52,5 +56,8 @@
   },
   "engines": {
     "node": ">=12.0.0"
-  }
+  },
+  "files": [
+    "/{!(.travis.yml|.gitignore|coverage|tests|*.tgz),}"
+  ]
 }
