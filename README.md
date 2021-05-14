@@ -1,10 +1,11 @@
 # utc-date
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/jhmaster2000/utc-date)](https://github.com/jhmaster2000/utc-date)
-[![npm](https://img.shields.io/npm/v/utc-date?color=darkred&label=latest%20npm%20release)](https://www.npmjs.com/package/utc-date)
-[![npm](https://img.shields.io/npm/dw/utc-date)](https://www.npmjs.com/package/utc-date)
-[![NPM](https://img.shields.io/npm/l/utc-date)](https://www.npmjs.com/package/utc-date)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/jhmaster2000/utc-date)](#)
+[![npm Release](https://img.shields.io/npm/v/utc-date?color=darkred&label=latest%20npm%20release)](https://www.npmjs.com/package/utc-date)
+[![npm Downloads](https://img.shields.io/npm/dw/utc-date)](https://www.npmjs.com/package/utc-date)
+[![License](https://img.shields.io/npm/l/utc-date)](#)
 [![Build Status](https://travis-ci.com/jhmaster2000/utc-date.svg?branch=master)](https://travis-ci.com/jhmaster2000/utc-date)
+[![node-current](https://img.shields.io/node/v/utc-date)](#)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date)](https://github.com/jhmaster2000/utc-date)
 
 Experimental Date object overwrite for always using UTC dates by default.
