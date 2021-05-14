@@ -1,5 +1,5 @@
 import util from 'util';
-import { NativeDate, UTCDate } from './load.js';
+import { NativeDate, UTCDate } from '../load.js';
 
 function compareCtorMethod(method) {
     return console.log(`${method}: ${new Date()[method]()} vs ${new NativeDate()[method]()}`);
