@@ -1,4 +1,5 @@
-# utc-date
+UTC Date
+========
 
 [![GitHub package.json version][github-image]][github-url]
 [![npm][npm-image]][npm-url]
