@@ -1,13 +1,13 @@
 # utc-date
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/jhmaster2000/utc-date)][github-url]
-[![npm package](https://img.shields.io/npm/v/utc-date?color=darkred&label=latest%20npm%20release)][npm-url]
-[![npm downloads](https://img.shields.io/npm/dw/utc-date)][npm-url]
-[![license](https://img.shields.io/npm/l/utc-date)][github-url]
-[![node-current](https://img.shields.io/node/v/utc-date)][npm-url]
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date)][github-url]
-[![Build Status](https://travis-ci.com/jhmaster2000/utc-date.svg?branch=master)](https://travis-ci.com/jhmaster2000/utc-date)
-[![Coverage Status](https://coveralls.io/repos/github/jhmaster2000/utc-date/badge.svg?branch=master)](https://coveralls.io/github/jhmaster2000/utc-date?branch=master)
+[![GitHub package.json version][github-image]][github-url]
+[![npm][npm-image]][npm-url]
+[![downloads][npm-downloads]][npm-url]
+[![NPM][npm-license]][github-url]
+[![node-current][node-image]][npm-url]
+[![GitHub code size in bytes][code-size]][github-url]
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
 Experimental Date object overwrite for always using UTC dates by default.
 
@@ -66,4 +66,14 @@ The ISO string is also lost from the raw object, even the `NativeDate` one, whic
 However these shouldn't be too big of an issue since you are never meant to interact directly with the `Date` object in this way on your code, if these do represent an issue to you or you know a way to fix these without worse side-effects, please do let me know.
 
 [github-url]:https://github.com/jhmaster2000/utc-date
-[npm-url]:https://www.npmjs.com/package/utc-date
+[github-image]:https://img.shields.io/github/package-json/v/jhmaster2000/utc-date
+[npm-url]:http://npmjs.org/package/utc-date
+[npm-image]:https://img.shields.io/npm/v/utc-date.svg
+[npm-license]:https://img.shields.io/npm/l/utc-date
+[npm-downloads]:https://img.shields.io/npm/dw/utc-date
+[node-image]:https://img.shields.io/node/v/utc-date
+[code-size]:https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date
+[travis-image]:https://travis-ci.com/jhmaster2000/utc-date.svg?branch=master
+[travis-url]:https://travis-ci.com/jhmaster2000/utc-date
+[coveralls-image]:https://coveralls.io/repos/github/jhmaster2000/utc-date/badge.svg?branch=master
+[coveralls-url]:https://coveralls.io/github/jhmaster2000/utc-date?branch=master
