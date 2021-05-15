@@ -2,10 +2,10 @@
 
 [![GitHub package.json version][github-image]][github-url]
 [![npm][npm-image]][npm-url]
-[![downloads][npm-downloads]][npm-url]
-[![NPM][npm-license]][github-url]
-[![node-current][node-image]][npm-url]
-[![GitHub code size in bytes][code-size]][github-url]
+[![downloads][npm-downloads]][alt-npm-url]
+[![NPM][npm-license]][license-url]
+[![node-current][node-image]][node-url]
+[![GitHub code size in bytes][code-size]][alt-github-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
@@ -66,12 +66,16 @@ The ISO string is also lost from the raw object, even the `NativeDate` one, whic
 However these shouldn't be too big of an issue since you are never meant to interact directly with the `Date` object in this way on your code, if these do represent an issue to you or you know a way to fix these without worse side-effects, please do let me know.
 
 [github-url]:https://github.com/jhmaster2000/utc-date
+[alt-github-url]:https://github.com/jhmaster2000/utc-date/tree/master
 [github-image]:https://img.shields.io/github/package-json/v/jhmaster2000/utc-date
+[license-url]:https://github.com/jhmaster2000/utc-date/blob/master/LICENSE.md
+[alt-npm-url]:http://npmjs.com/package/utc-date
 [npm-url]:http://npmjs.org/package/utc-date
 [npm-image]:https://img.shields.io/npm/v/utc-date.svg
 [npm-license]:https://img.shields.io/npm/l/utc-date
 [npm-downloads]:https://img.shields.io/npm/dw/utc-date
 [node-image]:https://img.shields.io/node/v/utc-date
+[node-url]:https://nodejs.org/en/download
 [code-size]:https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date
 [travis-image]:https://travis-ci.com/jhmaster2000/utc-date.svg?branch=master
 [travis-url]:https://travis-ci.com/jhmaster2000/utc-date
