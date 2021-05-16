@@ -2,11 +2,12 @@ UTC Date
 ========
 
 [![GitHub version][github-image]][github-url]
-[![npm release][npm-image]][npm-url]
 [![downloads][downloads-image]][npm-url]
 [![license][license-image]][license-url]
-[![node-current][node-image]][node-url]
 [![GitHub code size in bytes][size-image]][github-url]
+
+[![npm release][npm-image]][npm-url]
+[![node-current][node-image]][node-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
