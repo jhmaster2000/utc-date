@@ -1,12 +1,12 @@
 UTC Date
 ========
 
-[![GitHub package.json version][github-image]][github-url]
-[![npm][npm-image]][npm-url]
-[![downloads][npm-downloads]][alt-npm-url]
-[![NPM][npm-license]][license-url]
+[![GitHub version][github-image]][github-url]
+[![npm release][npm-image]][npm-url]
+[![downloads][downloads-image]][npm-url]
+[![license][license-image]][license-url]
 [![node-current][node-image]][node-url]
-[![GitHub code size in bytes][code-size]][alt-github-url]
+[![GitHub code size in bytes][size-image]][github-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
@@ -19,7 +19,7 @@ Experimental Date object overwrite for always using UTC dates by default.
 > **Guaranteed to NOT work on Node.js 11.x and lower, this won't be fixed.**
 
 ## Why?
-On MacOS and Linux, if you wanted to achieve this, all you need to do is set `process.env.TZ` to `Etc/GMT`, however Windows does not respect this, forcing you to either change your entire system's timezone with a package like `set-tz`, which personally I found vastly inconvenient when trying to selfhost apps on my personal computer, or overwritting the entire `Date` object to force it to output only UTC values, which is what this package does for you.
+On MacOS and Linux, if you wanted to achieve this, all you need to do is set \`process.env.TZ\` to \`Etc/GMT\`, however Windows does not respect this, forcing you to either change your entire system's timezone with a package like \`set-tz\`, which personally I found vastly inconvenient when trying to selfhost apps on my personal computer, or overwritting the entire \`Date\` object to force it to output only UTC values, which is what this package does for you.
 
 **This package probably does work on MacOS (untested) and Linux, but it is only truly needed on Windows.*
 
@@ -67,18 +67,16 @@ The ISO string is also lost from the raw object, even the `NativeDate` one, whic
 However these shouldn't be too big of an issue since you are never meant to interact directly with the `Date` object in this way on your code, if these do represent an issue to you or you know a way to fix these without worse side-effects, please do let me know.
 
 [github-url]:https://github.com/jhmaster2000/utc-date
-[alt-github-url]:https://github.com/jhmaster2000/utc-date/tree/master
-[github-image]:https://img.shields.io/github/package-json/v/jhmaster2000/utc-date
+[github-image]:https://img.shields.io/github/package-json/v/jhmaster2000/utc-date.svg
 [license-url]:https://github.com/jhmaster2000/utc-date/blob/master/LICENSE.md
-[alt-npm-url]:http://npmjs.com/package/utc-date
+[license-image]:https://img.shields.io/npm/l/utc-date.svg
 [npm-url]:http://npmjs.org/package/utc-date
-[npm-image]:https://img.shields.io/npm/v/utc-date.svg
-[npm-license]:https://img.shields.io/npm/l/utc-date
-[npm-downloads]:https://img.shields.io/npm/dw/utc-date
-[node-image]:https://img.shields.io/node/v/utc-date
+[npm-image]:https://img.shields.io/npm/v/utc-date.svg?color=darkred&label=npm%20release
+[downloads-image]:https://img.shields.io/npm/dw/utc-date.svg
 [node-url]:https://nodejs.org/en/download
-[code-size]:https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date
-[travis-image]:https://travis-ci.com/jhmaster2000/utc-date.svg?branch=master
+[node-image]:https://img.shields.io/node/v/utc-date.svg
+[size-image]:https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date.svg
 [travis-url]:https://travis-ci.com/jhmaster2000/utc-date
-[coveralls-image]:https://coveralls.io/repos/github/jhmaster2000/utc-date/badge.svg?branch=master
+[travis-image]:https://img.shields.io/travis/com/jhmaster2000/utc-date.svg
 [coveralls-url]:https://coveralls.io/github/jhmaster2000/utc-date?branch=master
+[coveralls-image]:https://coveralls.io/repos/github/jhmaster2000/utc-date/badge.svg?branch=master
