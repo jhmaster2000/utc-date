@@ -1,6 +1,6 @@
 {
   "name": "utc-date",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Experimental Date object overwrite for always using UTC / GMT date and time.",
   "type": "module",
   "main": "load.js",
@@ -52,7 +52,8 @@
   "devDependencies": {
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.3",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "prettier": "^2.3.0"
   },
   "engines": {
     "node": ">=12.0.0"
