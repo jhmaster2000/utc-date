@@ -1,43 +1,18 @@
+import { testDate, testNativeDate, msoffset, roundTimestamp, compareCtorMethod, compareInstances, matchCtorMethod } from './testerUtils.js';
+import { NativeDate, UTCDate } from '../load.js';
 import util from 'util';
-import {
-    NativeDate,
-    UTCDate
-} from '../load.js';
 import assert from 'assert';
 import { jest } from '@jest/globals';
 
-let t_msoffset = Date.parse(Date()) - NativeDate.parse(NativeDate());
-const msoffset = Math.round(Math.abs(t_msoffset) / 10);
-
-const testDate = new Date();
-const testNativeDate = new NativeDate(testDate.valueOf());
-
-function compareCtorMethod(method, roundStamp) {
-    if (roundStamp) return roundTimestamp(testDate[method]()) === roundTimestamp(testNativeDate[method]());
-    return testDate[method]() === testNativeDate[method]();
-}
-function compareInstances(thing) {
-    let func = thing instanceof Function
-    let objc = thing instanceof Object
-    let strg = thing instanceof String
-    let date = thing instanceof Date
-    let natd = thing instanceof NativeDate
-    let utcd = thing instanceof UTCDate
-    return func + ' ' + objc + ' ' + strg + ' ' + date + ' ' + natd + ' ' + utcd;
-}
-function roundTimestamp(stamp) {
-    return Math.round(Number(stamp) / 100);
-}
-
 describe('instanceof tests:', function () {
     it('new Date() instanceof', function () {
-        assert(compareInstances(new Date()) === 'false true false true true true');
+        expect(compareInstances(new Date())).toBe('false true false true true true');
     });
     it('new UTCDate() instanceof', function () {
-        assert(compareInstances(new UTCDate()) === 'false true false true true true');
+        expect(compareInstances(new UTCDate())).toBe('false true false true true true');
     });
     it('new NativeDate() instanceof', function () {
-        assert(compareInstances(new NativeDate()) === 'false true false true true true');
+        expect(compareInstances(new NativeDate())).toBe('false true false true true true');
     });
 });
 
@@ -67,31 +42,31 @@ describe('UTCDate vs NativeDate - constructor method tests:', function () {
         assert(compareCtorMethod('getUTCMilliseconds', true));
     });
     it('getFullYear', function () {
-        assert(compareCtorMethod('getFullYear') || !msoffset);
+        expect(matchCtorMethod('getFullYear', testNativeDate.getUTCFullYear()));
     });
     it('getMonth', function () {
-        assert(compareCtorMethod('getMonth') || !msoffset);
+        assert(matchCtorMethod('getMonth', testNativeDate.getUTCMonth()));
     });
     it('getDate', function () {
-        assert(compareCtorMethod('getDate') || !msoffset);
+        assert(matchCtorMethod('getDate', testNativeDate.getUTCDate()));
     });
     it('getDay', function () {
-        assert(compareCtorMethod('getDay') || !msoffset);
+        assert(matchCtorMethod('getDay', testNativeDate.getUTCDay()));
     });
     it('getHours', function () {
-        assert(!compareCtorMethod('getHours') || !msoffset);
+        assert(matchCtorMethod('getHours', testNativeDate.getUTCHours()));
     });
     it('getMinutes', function () {
-        assert(!compareCtorMethod('getMinutes') || !msoffset);
+        assert(matchCtorMethod('getMinutes', testNativeDate.getUTCMinutes()));
     });
     it('getSeconds', function () {
-        assert(compareCtorMethod('getSeconds') || !msoffset);
+        assert(matchCtorMethod('getSeconds', testNativeDate.getUTCSeconds()));
     });
     it('getMilliseconds', function () {
-        assert(compareCtorMethod('getMilliseconds', true) || !msoffset);
+        assert(matchCtorMethod('getMilliseconds', testNativeDate.getUTCMilliseconds(), true));
     });
     it('getTimezoneOffset', function () {
-        assert(!compareCtorMethod('getTimezoneOffset') || !msoffset);
+        expect(testDate.getTimezoneOffset()).toBe(0);
     });
     it('getTime', function () {
         assert(compareCtorMethod('getTime', true));
@@ -126,41 +101,41 @@ describe('UTCDate vs NativeDate - constructor method tests:', function () {
     it('valueOf', function () {
         assert(compareCtorMethod('valueOf', true));
     });
-    it('[Symbol.toPrimitive](\'string\')', function () {
+    it(`[Symbol.toPrimitive]('default')`, function () {
+        assert((testDate[Symbol.toPrimitive]('default') !== testNativeDate[Symbol.toPrimitive]('default')) || !msoffset);
+    });
+    it(`[Symbol.toPrimitive]('string')`, function () {
         assert((testDate[Symbol.toPrimitive]('string') !== testNativeDate[Symbol.toPrimitive]('string')) || !msoffset);
     });
-    it('[Symbol.toPrimitive](\'number\')', function () {
-        assert(roundTimestamp(testDate[Symbol.toPrimitive]('number')) === roundTimestamp(testNativeDate[Symbol.toPrimitive]('number')));
-    });
-    it('[Symbol.toPrimitive](\'default\')', function () {
-        assert((testDate[Symbol.toPrimitive]('default') !== testNativeDate[Symbol.toPrimitive]('default')) || !msoffset);
+    it(`[Symbol.toPrimitive]('number')`, function () {
+        expect(roundTimestamp(testDate[Symbol.toPrimitive]('number'))).toBe(roundTimestamp(testNativeDate[Symbol.toPrimitive]('number')));
     });
 });
 
 describe('UTCDate vs NativeDate - datatype tests:', function () {
     it('Number()', function () {
-        assert(roundTimestamp(Number(testDate)) === roundTimestamp(Number(testNativeDate)));
+        expect(roundTimestamp(Number(testDate))).toBeCloseTo(roundTimestamp(Number(testNativeDate)));
     });
     it('BigInt()', function () {
-        assert(roundTimestamp(BigInt(testDate)) === roundTimestamp(BigInt(testNativeDate)));
+        expect(roundTimestamp(BigInt(testDate))).toBeCloseTo(roundTimestamp(BigInt(testNativeDate)));
     });
     it('parseInt()', function () {
-        assert(isNaN(parseInt(testDate)) === isNaN(parseInt(testNativeDate)));
+        expect(parseInt(testDate)).toBe(NaN);
     });
     it('parseFloat()', function () {
-        assert(isNaN(parseFloat(testDate)) === isNaN(parseFloat(testNativeDate)));
+        expect(parseFloat(testDate)).toBe(NaN);
     });
     it('String()', function () {
         assert((String(testDate) !== String(testNativeDate)) || !msoffset);
     });
     it('util.inspect()', function () {
-        assert(util.inspect(testDate) !== util.inspect(testNativeDate));
+        expect(util.inspect(testDate)).not.toBe(util.inspect(testNativeDate));
     });
 });
 
 describe('UTCDate vs NativeDate - misc tests:', function () {
     it('Date', function () {
-        assert(Date !== NativeDate);
+        expect(Date).not.toBe(NativeDate);
     });
     it('Date()', function () {
         assert((Date() !== NativeDate()) || !msoffset);
@@ -169,22 +144,21 @@ describe('UTCDate vs NativeDate - misc tests:', function () {
         assert((new Date(162013481432).toString() !== new NativeDate(162013481432).toString()) || !msoffset);
     });
     it('Date.now()', function () {
-        assert(roundTimestamp(Date.now()) === roundTimestamp(NativeDate.now()));
+        expect(roundTimestamp(Date.now())).toBeCloseTo(roundTimestamp(NativeDate.now()));
     });
     it('Date.UTC()', function () {
-        assert(isNaN(Date.UTC()) === isNaN(NativeDate.UTC()));
+        expect(Date.UTC()).toBe(NaN);
     });
     it('Date.parse()', function () {
-        assert(isNaN(Date.parse()) === isNaN(NativeDate.parse()));
+        expect(Date.parse()).toBe(NaN);
     });
     it('Date.UTC(x)', function () {
-        assert(roundTimestamp(Date.UTC(1971, 1, 2, 20, 37, 9, 666)) === roundTimestamp(NativeDate.UTC(1971, 1, 2, 20, 37, 9, 666)));
+        expect(roundTimestamp(Date.UTC(1971, 1, 2, 20, 37, 9, 666))).toBeCloseTo(roundTimestamp(NativeDate.UTC(1971, 1, 2, 20, 37, 9, 666)));
     });
     it('Date.parse(x)', function () {
         assert((roundTimestamp(Date.parse('Tue May 04 2021 11:08:32')) !== roundTimestamp(NativeDate.parse('Tue May 04 2021 11:08:32'))) || !msoffset);
     });
+    it('Date.parse(x) with TZ', function () {
+        expect(roundTimestamp(Date.parse('Tue May 04 2021 11:08:32 UTC'))).toBeCloseTo(roundTimestamp(NativeDate.parse('Tue May 04 2021 11:08:32 UTC')));
+    });
 });
-
-//describe('extra tests:', function () {
-
-//});

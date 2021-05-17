@@ -1,6 +1,6 @@
 {
   "name": "utc-date",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Experimental Date object overwrite for always using UTC / GMT date and time.",
   "type": "module",
   "main": "load.js",
@@ -59,6 +59,8 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "/{!(.gitignore|coverage|*.tgz),}"
+    "/{!(.gitignore|coverage|*.tgz|tests),}",
+    "/tests/main.test.js",
+    "/tests/testerUtils.js"
   ]
 }
