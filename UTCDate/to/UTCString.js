@@ -1,4 +1,4 @@
-import UTCDatePadNumbers from '../PadNumbers.js';
+import UTCDatePadNumbers from '../../utils/PadNumbers.js';
 
 export default function UTCDateToUTCString(UTC) {
     let UTCDay = String(UTC.getUTCDay()).replace('0','Sun')

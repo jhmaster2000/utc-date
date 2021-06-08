@@ -1,4 +1,4 @@
-import UTCDatePadNumbers from '../PadNumbers.js';
+import UTCDatePadNumbers from '../../utils/PadNumbers.js';
 
 export default function UTCDateToTimeString(UTC) {
     let UTCHour = UTCDatePadNumbers(UTC.getUTCHours());

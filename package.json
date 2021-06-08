@@ -44,8 +44,8 @@
       "json"
     ],
     "collectCoverageFrom": [
-      "./{!(cloneObject),}.js",
-      "./UTCDate/{!(CalculateTZ|PadMs),}.js",
+      "./load.js",
+      "./UTCDate/{!(Console),}.js",
       "./UTCDate/to/**"
     ]
   },
@@ -59,7 +59,7 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "/{!(.gitignore|coverage|*.tgz|tests),}",
+    "/{!(coverage|*.tgz|tests),}",
     "/tests/main.test.js",
     "/tests/testerUtils.js"
   ]

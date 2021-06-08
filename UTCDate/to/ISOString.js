@@ -1,5 +1,5 @@
-import UTCDatePadNumbers from '../PadNumbers.js';
-import UTCDatePadMs from '../PadMs.js';
+import UTCDatePadNumbers from '../../utils/PadNumbers.js';
+import UTCDatePadMs from '../../utils/PadMs.js';
 
 export default function UTCDateToISOString(UTC) {
     let UTCMonth = UTCDatePadNumbers(UTC.getUTCMonth() + 1);

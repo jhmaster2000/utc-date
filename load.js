@@ -1,5 +1,6 @@
 import { UTCDate, NativeDate } from './UTCDate/Class.js';
 import UTCDateParse from './UTCDate/Parse.js';
+import './UTCDate/Console.js';
 
 function UTCDateCaller(...ctorParams) {
     if (this === undefined) return new UTCDate().toString();

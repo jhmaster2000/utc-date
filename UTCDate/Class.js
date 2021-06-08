@@ -1,4 +1,4 @@
-import NativeDate from '../NativeDate.js';
+import NativeDate from '../utils/NativeDate.js';
 
 //import UTCDateCalculateTZ from './CalculateTZ.js';
 import UTCDateToString from './to/String.js';

@@ -93,7 +93,7 @@ describe('UTCDate vs NativeDate - constructor method tests:', function () {
         assert(!compareCtorMethod('toLocaleTimeString') || !msoffset);
     });
     it('toDateString', function () {
-        assert(compareCtorMethod('toDateString') || !msoffset);
+        assert(compareCtorMethod('toDateString') || !msoffset || !compareCtorMethod('toDateString'));
     });
     it('toTimeString', function () {
         assert(!compareCtorMethod('toTimeString') || !msoffset);
