@@ -57,7 +57,10 @@ console.log('parseFloat():', parseFloat(new Date()), 'vs', parseFloat(new Native
 console.log('String():', String(new Date()), 'vs', String(new NativeDate()));
 console.log('Array():', Array(new Date()), 'vs', Array(new NativeDate()));
 console.log('Object():', Object(new Date()), 'vs', Object(new NativeDate()));
+console.log('util.inspect():', util.inspect(Date), 'vs', util.inspect(NativeDate));
+console.log('util.inspect():', util.inspect(Date()), 'vs', util.inspect(NativeDate()));
 console.log('util.inspect():', util.inspect(new Date()), 'vs', util.inspect(new NativeDate()));
+console.log('util.inspect():', util.inspect(Date.toString()), 'vs', util.inspect(NativeDate.toString()));
 console.log('Date:', Date, 'vs', NativeDate);
 console.log('Date():', Date(), 'vs', NativeDate());
 console.log('new Date:', new Date, 'vs', new NativeDate);

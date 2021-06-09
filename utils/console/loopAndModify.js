@@ -20,7 +20,7 @@ function loopAndModifyObject(object, condition, modifer, depth, processed) {
     if (processed.has(object)) return object; // Reference to already processed object, abort
     processed.add(object);
     for (const key in object) {
-        if (object.hasOwnProperty(key)) {
+        if (object.__proto__ !== undefined && object.hasOwnProperty(key)) {
             let circular = false;
             const val = object[key];
             if (val === object) circular = true; // Circular object, abort

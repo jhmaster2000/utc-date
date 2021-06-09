@@ -1,4 +1,5 @@
 import inject from '../utils/console/inject.js';
+import '../utils/console/inspect.js';
 
 console['log'] = function log(...a) { inject('log', a); }
 console['dir'] = function dir(...a) { inject('dir', a); }
