@@ -1,4 +1,5 @@
 import util from 'util';
+import { loopAndModifyArray, loopAndModifyObject } from './loopAndModify.js';
 Object.isObject = (obj) => { return ({}).toString.apply(obj) === '[object Object]'; }
 
 const original = util.inspect;

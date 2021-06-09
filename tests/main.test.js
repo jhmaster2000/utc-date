@@ -1,8 +1,21 @@
-import { testDate, testNativeDate, msoffset, roundTimestamp, compareCtorMethod, compareInstances, matchCtorMethod } from './testerUtils.js';
-import { NativeDate, UTCDate } from '../load.js';
+import {
+    testDate,
+    testNativeDate,
+    msoffset,
+    roundTimestamp,
+    compareCtorMethod,
+    compareInstances,
+    matchCtorMethod
+} from './testerUtils.js';
+import {
+    NativeDate,
+    UTCDate
+} from '../load.js';
 import util from 'util';
 import assert from 'assert';
-import { jest } from '@jest/globals';
+import {
+    jest
+} from '@jest/globals';
 
 describe('instanceof tests:', function () {
     it('new Date() instanceof', function () {
@@ -16,7 +29,7 @@ describe('instanceof tests:', function () {
     });
 });
 
-describe('UTCDate vs NativeDate - constructor method tests:', function () {
+describe('UTCDate vs NativeDate - constructor getter method tests:', function () {
     it('getUTCFullYear', function () {
         assert(compareCtorMethod('getUTCFullYear'));
     });
@@ -129,7 +142,7 @@ describe('UTCDate vs NativeDate - datatype tests:', function () {
         assert((String(testDate) !== String(testNativeDate)) || !msoffset);
     });
     it('util.inspect()', function () {
-        expect(util.inspect(testDate)).not.toBe(util.inspect(testNativeDate));
+        expect(util.inspect(testDate)).toBe(util.inspect(testNativeDate));
     });
 });
 
@@ -160,5 +173,42 @@ describe('UTCDate vs NativeDate - misc tests:', function () {
     });
     it('Date.parse(x) with TZ', function () {
         expect(roundTimestamp(Date.parse('Tue May 04 2021 11:08:32 UTC'))).toBeCloseTo(roundTimestamp(NativeDate.parse('Tue May 04 2021 11:08:32 UTC')));
+    });
+});
+
+const tMonth = (() => {
+    if (testDate.getUTCMonth() <= 9) return testDate.getUTCMonth() + 2;
+    else return (testDate.getUTCMonth() + 2) - 12;
+})();
+const tDate = (() => {
+    if (testDate.getUTCDate() <= 24) return testDate.getUTCDate() + 3;
+    else return (testDate.getUTCDate() + 3) - 27;
+})();
+const tHours = testDate.getUTCHours() + 4;
+const tMinutes = testDate.getUTCMinutes() + 5;
+const tSeconds = testDate.getUTCSeconds() + 10;
+const tMS = testDate.getUTCMilliseconds() + 1000;
+
+describe('UTCDate vs NativeDate - constructor setter method tests:', function () {
+    it('setFullYear', function () {
+        expect(roundTimestamp(testDate.setFullYear(1986))).toBe(roundTimestamp(testNativeDate.setFullYear(1986)));
+    });
+    it('setMonth', function () {
+        assert(roundTimestamp(testDate.setMonth(tMonth)) === roundTimestamp(testNativeDate.setMonth(tMonth)) || msoffset);
+    });
+    it('setDate', function () {
+        assert(roundTimestamp(testDate.setDate(tDate)) === roundTimestamp(testNativeDate.setDate(tDate)) || msoffset);
+    });
+    it('setHours', function () {
+        expect(roundTimestamp(testDate.setHours(tHours)) !== roundTimestamp(testNativeDate.setHours(tHours)) || !msoffset);
+    });
+    it('setMinutes', function () {
+        expect(roundTimestamp(testDate.setMinutes(tMinutes)) !== roundTimestamp(testNativeDate.setMinutes(tMinutes)) || !msoffset);
+    });
+    it('setSeconds', function () {
+        expect(roundTimestamp(testDate.setSeconds(tSeconds)) !== roundTimestamp(testNativeDate.setSeconds(tSeconds)) || !msoffset);
+    });
+    it('setMilliseconds', function () {
+        expect(roundTimestamp(testDate.setMilliseconds(tMS)) !== roundTimestamp(testNativeDate.setMilliseconds(tMS)) || !msoffset);
     });
 });
