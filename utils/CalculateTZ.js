@@ -1,5 +1,6 @@
 import UTCDatePadNumbers from './PadNumbers.js';
 
+// Debug function, unused
 export default function UTCDateCalculateTZ(offs) {
     let h = offs.hours;
     let m = offs.mins;
