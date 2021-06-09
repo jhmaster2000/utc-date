@@ -39,11 +39,11 @@ npm i utc-date --save
 ## Usage
 On your main file:
 ```js
-import 'utc-date'
+import 'utc-date';
 ```
 This must be placed as early as possible, prior to even other imports to ensure full **utc-date** usage even within other imports.
 
-All `Date` instances from here on will now be using **utc-date**. This includes sub-files and modules.
+All `Date` instances from here on will now be using **utc-date**. This includes sub-files and modules. Does **NOT** include `Date` instances created *before* `utc-date` is loaded.
 
 ### Getting the native Date object
 If for some reason while using **utc-date** you require using the native Date object, you can import a clone of it from **utc-date** with:
@@ -62,12 +62,8 @@ Date = NativeDate
 - The **utc-date** object will now be accessible through `UTCDate` with the same syntax used on the normal `Date` object.
 - You can import and use `UTCDate` without reverting `Date` back to native, but there isn't really a point in doing so.
 
-### Small Caveats
-Due to being unable to put the overwritten `Date` functions in the prototype due it also propagating to the `NativeDate` object (maybe there is a way to do it without this happening, but I couldn't figure it out myself), all the overwritten `Date` functions will show up when you print the raw `Date` object directly or util.inspect() it, instead of just showing the ISO string.
-
-The ISO string is also lost from the raw object, even the `NativeDate` one, which prints just a visually empty object instead: `{}`
-
-However these shouldn't be too big of an issue since you are never meant to interact directly with the `Date` object in this way on your code, if these do represent an issue to you or you know a way to fix these without worse side-effects, please do let me know.
+### Incompatibility
+Due to the nature of this package, it is naturally incompatible with any other package or local code that also overwrites/modifies the native `Date` object. Extending the `Date` object is fine as long as it's done *after* **utc-date** is loaded.
 
 [github-url]:https://github.com/jhmaster2000/utc-date
 [github-image]:https://img.shields.io/github/package-json/v/jhmaster2000/utc-date.svg
@@ -75,7 +71,7 @@ However these shouldn't be too big of an issue since you are never meant to inte
 [license-image]:https://img.shields.io/npm/l/utc-date.svg
 [npm-url]:http://npmjs.org/package/utc-date
 [npm-image]:https://img.shields.io/npm/v/utc-date.svg?color=darkred&label=npm%20release
-[downloads-image]:https://img.shields.io/npm/dw/utc-date.svg
+[downloads-image]:https://img.shields.io/npm/dt/utc-date.svg
 [node-url]:https://nodejs.org/en/download
 [node-image]:https://img.shields.io/node/v/utc-date.svg
 [size-image]:https://img.shields.io/github/languages/code-size/jhmaster2000/utc-date.svg

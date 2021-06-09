@@ -1,6 +1,10 @@
 # Changelog
 
-## Versions 0.0.6 + 0.0.7 + 0.0.8
+## Version 0.0.10
+- Implemented fixes for inconsistent console logging compared to the native Date object.
+- Optimized some chunks of the code.
+- Completed tests.
+## Versions 0.0.6 + 0.0.7 + 0.0.8 + 0.0.9
 - No user-side changes, only repository / npm optimizations and fixes.
 
 ## Version 0.0.5
