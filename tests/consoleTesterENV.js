@@ -1,0 +1,2 @@
+//process.env.UTCDATE_NO_OVERWRITE=1
+process.env.UTCDATE_PATCH_CONSOLE=1

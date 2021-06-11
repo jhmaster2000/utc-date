@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.0.11
+- Added customization options through env variables
+    - `UTCDATE_NO_OVERWRITE`: When set to any value, does not automatically overwrite the `Date` object with the `UTCDate` one. (Defaults to overwriting if not set)
+    - `UTCDATE_PATCH_CONSOLE`: When set to any value, will patch the console methods to make the logged UTC dates match what you expect from logging the native `Date` object. (Defaults to not patching when not set, due to potential to break things)
 ## Version 0.0.10
 - Implemented fixes for inconsistent console logging compared to the native Date object.
 - Optimized some chunks of the code.

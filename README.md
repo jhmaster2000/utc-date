@@ -11,7 +11,7 @@ UTC Date
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 
-Experimental Date object overwrite for always using UTC dates by default.
+Experimental `Date` object overwrite for always using UTC dates by default.
 
 **Tested on:**
 - Windows = Node.js 12.x, 13.x, 14.x, 15.x and 16.x with ESM
@@ -52,15 +52,14 @@ import { NativeDate } from 'utc-date'
 ```
 Keep in mind that unlike the `Date` overwrite, this is not global and `NativeDate` will only be accessible on the file it's imported on.
 
-### Using without overwriting the native Date object
-If for some reason you prefer to use the `UTCDate` class directly instead of overwriting the native `Date`, you can simply revert the overwrite after importing by using the code below:
-```js
-import { NativeDate, UTCDate } from 'utc-date'
-Date = NativeDate
-```
-- Both `Date` and `NativeDate` will now be accessible as the native `Date` object.
-- The **utc-date** object will now be accessible through `UTCDate` with the same syntax used on the normal `Date` object.
-- You can import and use `UTCDate` without reverting `Date` back to native, but there isn't really a point in doing so.
+### Settings
+**utc-date** supports a few customization settings through the use of ENV variables:
+Setting | Description
+-|-
+`UTCDATE_NO_OVERWRITE` | When set to any value, does not automatically overwrite the `Date` object with the `UTCDate` one. *(Defaults to overwriting if not set)*
+`UTCDATE_PATCH_CONSOLE`| When set to any value, will patch the console methods to make the logged UTC dates match what you expect from logging the native `Date` object. *(Defaults to not patching when not set, due to potential to break things)*
+
+> Remember to keep in mind load order of `import`s when using these options, making sure the ENV variables are loaded into `process.env` before **utc-date** is imported.
 
 ### Incompatibility
 Due to the nature of this package, it is naturally incompatible with any other package or local code that also overwrites/modifies the native `Date` object. Extending the `Date` object is fine as long as it's done *after* **utc-date** is loaded.
