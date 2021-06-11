@@ -1,6 +1,7 @@
 import { UTCDate, NativeDate } from './UTCDate/Class.js';
 import UTCDateParse from './UTCDate/Parse.js';
-import './UTCDate/Console.js';
+import patchConsole from './UTCDate/Console.js';
+if (process.env.UTCDATE_PATCH_CONSOLE) patchConsole();
 
 function UTCDateCaller(...ctorParams) {
     if (this === undefined) return new UTCDate().toString();
@@ -15,6 +16,6 @@ UTCDateCaller.__proto__.now = () => { return NativeDate.now(); }
 UTCDateCaller.__proto__.UTC = (...params) => { return NativeDate.UTC(...params); }
 UTCDateCaller.__proto__.parse = (...params) => { return UTCDateParse(...params); }
 
-Date = UTCDateCaller;
+if (!process.env.UTCDATE_NO_OVERWRITE) Date = UTCDateCaller;
 
 export { NativeDate, UTCDateCaller as UTCDate }
