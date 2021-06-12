@@ -2,6 +2,7 @@
 // Instead this file is for manual human verification of the console outputs
 import './consoleTesterENV.js';
 import '../load.js'; // utc-date
+import util from 'util';
 const fixdate = Date();
 const fixdate_ctor = new Date;
 const tests = [
@@ -44,3 +45,8 @@ console.table({ val: 'foo' }, [Date.toString()]);
 console.log('test: console object');
 console.log(console);
 console.log('console tests finished');
+
+process.stdout.write(util.inspect(Date) + '\n');
+process.stdout.write(util.inspect(Date()) + '\n');
+process.stdout.write(util.inspect(new Date) + '\n');
+process.stdout.write(util.inspect(Date.toString()) + '\n');

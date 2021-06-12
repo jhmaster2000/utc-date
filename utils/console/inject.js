@@ -1,6 +1,6 @@
-import util from 'util';
 import { loopAndModifyArray, loopAndModifyObject } from './loopAndModify.js';
 import injectTable from './table.js';
+import nativeInspect from './inspect.js';
 const UTCDateCallerStr = `function UTCDateCaller\\(\\.\\.\\.ctorParams\\) {(.|\n|\r)*if \\(this === undefined\\) return new UTCDate\\(\\)\\.toString\\(\\);(.|\n|\r)*let aUTCDate = new UTCDate\\(\\.\\.\\.ctorParams\\);(.|\n|\r)*aUTCDate\\.__proto__ = NativeDate\\.prototype;(.|\n|\r)*aUTCDate\\.__proto__\\.constructor = NativeDate\\.prototype;(.|\n|\r)*aUTCDate\\.__proto__\\.__proto__ = this\\.__proto__;(.|\n|\r)*aUTCDate\\.__proto__\\.__proto__\\.constructor = this\\.__proto__;(.|\n|\r)*return aUTCDate;(.|\n|\r)*}`;
 const UTCDateCallerRegex = new RegExp(UTCDateCallerStr, 'g');
 Object.isObject = (obj) => { return ({}).toString.apply(obj) === '[object Object]'; }
@@ -29,16 +29,15 @@ export default function inject(method, args) {
 }
 
 function loopCondition(x, id, main) { if (!Array.isArray(x) && !Object.isObject(x)) return true; }
-
 function loopModifier(x, id, main) {
     if (x instanceof Date) return x.toISOString();
-    if (typeof x !== 'object' && util.inspect(x).includes('[Function: UTCDateCaller]')) {
+    if (typeof x !== 'object' && nativeInspect(x).includes('[Function: UTCDateCaller]')) {
         if (typeof x === 'string') return x.replace(/\[Function: UTCDateCaller\]/g, '[Function: Date]');
-        else return util.inspect(x).replace(/\[Function: UTCDateCaller\]/g, '[Function: Date]');
+        else return nativeInspect(x).replace(/\[Function: UTCDateCaller\]/g, '[Function: Date]');
     }
-    if (typeof x !== 'object' && util.inspect(x).match(UTCDateCallerRegex)) {
+    if (typeof x !== 'object' && nativeInspect(x).match(UTCDateCallerRegex)) {
         if (typeof x === 'string') return x.replace(UTCDateCallerRegex, 'function Date() { [native code] }');
-        else return util.inspect(x).replace(UTCDateCallerRegex, 'function Date() { [native code] }').slice(1, -1);
+        else return nativeInspect(x).replace(UTCDateCallerRegex, 'function Date() { [native code] }').slice(1, -1);
     }
     return x;
 }
