@@ -11,7 +11,9 @@ const origkeys = {
     styles: original.styles,
     defaultOptions: original.defaultOptions
 }
-util['inspect'] = function inspect(...a) { return injectInspect(a); }
+export function patchInspect() {
+    util['inspect'] = function inspect(...a) { return injectInspect(a); }
+}
 
 for (const okey in origkeys) {
     if (Object.hasOwnProperty.call(origkeys, okey)) {

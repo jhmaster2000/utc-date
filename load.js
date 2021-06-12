@@ -1,6 +1,8 @@
 import { UTCDate, NativeDate } from './UTCDate/Class.js';
 import UTCDateParse from './UTCDate/Parse.js';
 import patchConsole from './UTCDate/Console.js';
+import { patchInspect } from './utils/console/inspect.js';
+if (process.env.UTCDATE_PATCH_INSPECT) patchInspect();
 if (process.env.UTCDATE_PATCH_CONSOLE) patchConsole();
 
 function UTCDateCaller(...ctorParams) {

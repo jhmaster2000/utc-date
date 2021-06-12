@@ -1,5 +1,4 @@
 import inject from '../utils/console/inject.js';
-import '../utils/console/inspect.js';
 
 export default function patchConsole() {
     console['log'] = function log(...a) { inject('log', a); }
