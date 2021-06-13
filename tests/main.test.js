@@ -1,3 +1,4 @@
+import './utcdate-env.js';
 import {
     testDate,
     testNativeDate,
@@ -7,15 +8,10 @@ import {
     compareInstances,
     matchCtorMethod
 } from './testerUtils.js';
-import {
-    NativeDate,
-    UTCDate
-} from '../load.js';
+import { NativeDate, UTCDate } from '../load.js';
 import util from 'util';
 import assert from 'assert';
-import {
-    jest
-} from '@jest/globals';
+import { jest } from '@jest/globals';
 
 describe('instanceof tests:', function () {
     it('new Date() instanceof', function () {

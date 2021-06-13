@@ -1,3 +1,4 @@
+import './utcdate-env.js';
 import util from 'util';
 import { NativeDate, UTCDate } from '../load.js';
 

@@ -1,6 +1,6 @@
 // This is not a *.test.js file because it is pointless, since testing frameworks can't test console output
 // Instead this file is for manual human verification of the console outputs
-import './consoleTesterENV.js';
+import './utcdate-env.js';
 import '../load.js'; // utc-date
 import util from 'util';
 const fixdate = Date();
