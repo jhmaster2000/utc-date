@@ -57,7 +57,7 @@ Keep in mind that unlike the `Date` overwrite, this is not global and `NativeDat
 Setting | Description
 -|-
 `UTCDATE_NO_OVERWRITE` | When set to any value, does not automatically overwrite the `Date` object with the `UTCDate` one. *(Defaults to overwriting if not set)*
-`UTCDATE_PATCH_CONSOLE`| When set to any value, will patch the console methods to make the logged UTC dates match what you expect from logging the native `Date` object. *(Defaults to not patching when not set, due to potential to break things)*
+`UTCDATE_PATCH_CONSOLE`| When set to any value, will patch the console methods to make the logged UTC dates match what you expect from logging the native `Date` object. *(Defaults to not patching when not set)*
 `UTCDATE_PATCH_INSPECT`| When set to any value, will patch the `util.inspect` method to make the returned values for dates from **utc-date** match the return values of native dates. *(Defaults to not patching when not set)*
 
 > Remember to keep in mind load order of `import`s when using these options, making sure the ENV variables are loaded into `process.env` before **utc-date** is imported.
