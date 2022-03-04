@@ -1,7 +1,7 @@
 import UTCDatePadNumbers from '../../utils/PadNumbers.js';
 import UTCDatePadMs from '../../utils/PadMs.js';
 
-export default function UTCDateToISOString(UTC) {
+export default function UTCDateToISOString(UTC: Date) {
     let UTCMonth = UTCDatePadNumbers(UTC.getUTCMonth() + 1);
     let UTCDotM = UTCDatePadNumbers(UTC.getUTCDate());
     let UTCYear = UTC.getUTCFullYear();

@@ -1,6 +1,6 @@
 import NativeDate from '../../utils/NativeDate.js'
 
-export default function UTCDateToLocaleString(UTC, locale, opts) {
+export default function UTCDateToLocaleString(UTC: Date, locale?: string | string[], opts?: Intl.DateTimeFormatOptions) {
     if (!locale) locale = 'en-GB';
     if (!opts) opts = {};
     if (!opts.dateStyle) opts.dateStyle = undefined;

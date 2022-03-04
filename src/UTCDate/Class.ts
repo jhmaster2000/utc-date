@@ -11,7 +11,8 @@ import UTCDateToLocaleTimeString from './to/LocaleTimeString.js';
 import UTCDateToLocaleDateString from './to/LocaleDateString.js';
 
 class UTCDate extends NativeDate {
-    constructor(...ctorParams) {
+    __proto__!: Date;
+    constructor(...ctorParams: [any?]) {
         super(...ctorParams);
                 
         /*const UTCDateInternals = {};
@@ -30,9 +31,9 @@ class UTCDate extends NativeDate {
         this.toUTCString = () => { return UTCDateToUTCString(this); }
         this.toISOString = () => { return UTCDateToISOString(this); }
         this.toJSON = () => { return UTCDateToISOString(this); }
-        this.toLocaleString = (...params) => { return UTCDateToLocaleString(this, ...params); }
-        this.toLocaleTimeString = (...params) => { return UTCDateToLocaleTimeString(this, ...params); }
-        this.toLocaleDateString = (...params) => { return UTCDateToLocaleDateString(this, ...params); }
+        this.toLocaleString = (...params: []) => { return UTCDateToLocaleString(this, ...params); }
+        this.toLocaleTimeString = (...params: []) => { return UTCDateToLocaleTimeString(this, ...params); }
+        this.toLocaleDateString = (...params: []) => { return UTCDateToLocaleDateString(this, ...params); }
 
         this.getFullYear = () => { return this.getUTCFullYear(); }
         this.getMonth = () => { return this.getUTCMonth(); }

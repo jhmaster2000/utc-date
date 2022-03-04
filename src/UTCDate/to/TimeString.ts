@@ -1,6 +1,6 @@
 import UTCDatePadNumbers from '../../utils/PadNumbers.js';
 
-export default function UTCDateToTimeString(UTC) {
+export default function UTCDateToTimeString(UTC: Date) {
     let UTCHour = UTCDatePadNumbers(UTC.getUTCHours());
     let UTCMins = UTCDatePadNumbers(UTC.getUTCMinutes());
     let UTCSecs = UTCDatePadNumbers(UTC.getUTCSeconds());
