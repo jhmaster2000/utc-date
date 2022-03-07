@@ -8,7 +8,7 @@ import {
     compareInstances,
     matchCtorMethod
 } from './testerUtils.js';
-import { NativeDate, UTCDate } from '../load.js';
+import { NativeDate, UTCDate } from '../dist/load.js';
 import util from 'util';
 import assert from 'assert';
 import { jest } from '@jest/globals';

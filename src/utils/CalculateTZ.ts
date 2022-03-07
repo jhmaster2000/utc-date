@@ -15,6 +15,6 @@ export default function UTCDateCalculateTZ(offs: { hours: any; mins: any; }): st
 
     let mstr = UTCDatePadNumbers(mabs - (Math.floor((mabs - 1) / 60) * 60));
     hstr = String(Math.floor(Number(hstr)));
-    hstr = UTCDatePadNumbers(hstr);
+    hstr = UTCDatePadNumbers(Number(hstr));
     return `GMT${dir}${hstr}${mstr}`;
 }

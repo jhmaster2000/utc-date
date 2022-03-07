@@ -101,7 +101,7 @@
     "ts-node": {
         "pretty": true,
         "preferTsExts": true,
-        "skipIgnore": true,
+        "skipIgnore": true
     },
     "include": ["./src", "./src/**/*.json"]
 }

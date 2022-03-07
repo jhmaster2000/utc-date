@@ -1,4 +1,4 @@
-import { NativeDate, UTCDate } from '../load.js';
+import { NativeDate, UTCDate } from '../dist/load.js';
 
 const testDate = new Date();
 const testNativeDate = new NativeDate(testDate.valueOf());

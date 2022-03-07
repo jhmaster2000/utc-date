@@ -3,9 +3,9 @@
   "version": "0.0.11",
   "description": "Experimental Date object overwrite for always using UTC / GMT date and time.",
   "type": "module",
-  "main": "load.js",
+  "main": "src/load.js",
   "scripts": {
-    "start": "node --loader ts-node/esm load.ts",
+    "start": "node --loader ts-node/esm src/load.ts",
     "test": "rm -rf coverage/ && cross-env NODE_OPTIONS=--experimental-vm-modules npx jest --coverage --coverageProvider=v8",
     "coverage": "npm test && cat ./coverage/lcov.info | npx coveralls"
   },
