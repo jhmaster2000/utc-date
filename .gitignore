@@ -4,6 +4,7 @@
 /dist
 /*.ts
 /*.js
+/*.mjs
 src/**/*.js
 *.log
 *.tgz
