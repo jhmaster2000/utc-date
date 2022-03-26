@@ -28,7 +28,7 @@
         // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
         // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
         // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
-        "resolveJsonModule": true,                           /* Enable importing .json files */
+        "resolveJsonModule": false,                          /* Enable importing .json files */
         // "noResolve": true,                                /* Disallow `import`s, `require`s or `<reference>`s from expanding the number of files TypeScript should add to a project. */
 
         /* JavaScript Support */
@@ -88,8 +88,8 @@
         "noUncheckedIndexedAccess": false,                   /* Include 'undefined' in index signature results */
         "noImplicitOverride": true,                          /* Ensure overriding members in derived classes are marked with an override modifier. */
         "noPropertyAccessFromIndexSignature": false,         /* Enforces using indexed accessors for keys declared using an indexed type */
-        //"allowUnusedLabels": true,                         /* Disable error reporting for unused labels. */
-        //"allowUnreachableCode": true,                      /* Disable error reporting for unreachable code. */
+        // "allowUnusedLabels": true,                         /* Disable error reporting for unused labels. */
+        // "allowUnreachableCode": true,                      /* Disable error reporting for unreachable code. */
 
         /* Completeness */
         // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
@@ -103,5 +103,5 @@
         "preferTsExts": true,
         "skipIgnore": true
     },
-    "include": ["./src", "./src/**/*.json"]
+    "include": ["./src"]
 }
