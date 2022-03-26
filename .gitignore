@@ -2,6 +2,7 @@
 /.nyc_output
 /coverage
 /dist
+/old
 /*.ts
 /*.js
 /*.mjs
