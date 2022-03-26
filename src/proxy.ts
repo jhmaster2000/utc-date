@@ -7,12 +7,14 @@ import UTCDateToLocaleTimeString from './UTCDate/toLocaleTimeString.js';
 import UTCDateParse from './UTCDate/Parse.js';
 
 export const UTCDateSymbol = Symbol('UTCDate');
+export const NativeDateSymbol = Symbol('NativeDate');
 
 const DateProxy = new Proxy(Date, {
     get(DateCtor: DateConstructor, prop: keyof DateConstructor) {
-        if (<unknown>prop === UTCDateSymbol) return true;
         if (prop === 'toString' as keyof DateConstructor) return ProxyFn(DateCtor.toString, { apply: () => DateCtor.toString() });
         if (prop === 'parse' as keyof DateConstructor) return ProxyFn(DateCtor.parse, { apply: (_, __, args) => UTCDateParse(args, DateCtor) });
+        if (<unknown>prop === UTCDateSymbol) return true;
+        if (<unknown>prop === NativeDateSymbol) return DateCtor;
         else return DateCtor[prop];
     },
     apply(DateCtor: DateConstructor): string {
@@ -46,6 +48,7 @@ const DateProxy = new Proxy(Date, {
                     case 'toLocaleDateString': return ProxyFn(date[prop], { apply: (_, thiz, args) => UTCDateToLocaleDateString(thiz, args, DateCtor) });
                 }
                 if (typeof date[prop] === 'function' && prop !== 'constructor' as any) return bindFn(date[prop], date);
+                if (<unknown>prop === UTCDateSymbol) return true;
                 else return date[prop];
             },
         });
@@ -149,14 +152,5 @@ function tryString(obj: any): string {
         return `! STRINGFAIL: ${e.name}`;
     }
 }
-
-        /*const UTCDateInternals = {};
-        UTCDateInternals.UTCOffsets = {
-            ms: (this.getTimezoneOffset() * 60000),
-            secs: (this.getTimezoneOffset() * 60),
-            mins: this.getTimezoneOffset(),
-            hours: (this.getTimezoneOffset() / 60)
-        }
-        UTCDateInternals.UTCTimezone = UTCDateCalculateTZ(UTCDateInternals.UTCOffsets);*/
 
 export default DateProxy;

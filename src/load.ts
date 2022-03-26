@@ -1,5 +1,10 @@
-import DateProxy from './proxy.js';
+import DateProxy, { NativeDateSymbol, UTCDateSymbol } from './proxy.js';
 
-Date = DateProxy;
+const NativeDate = DateProxy[<keyof DateConstructor><unknown>NativeDateSymbol] as unknown as DateConstructor;
 
-export default DateProxy;
+function isUTCDate(date: any): boolean {
+    if (date === null || date === undefined) return false;
+    else return date[UTCDateSymbol] as true | undefined ?? false;
+}
+
+export { DateProxy as UTCDate, NativeDate, isUTCDate };
