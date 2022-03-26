@@ -1,4 +1,4 @@
-import padDigit from '../padDigit.js';
+import padDigit from '../utils/padDigit.js';
 
 export default function UTCDateToDateString(UTC: Date) {
     const UTCDay = String(UTC.getUTCDay()).replace('0', 'Sun')

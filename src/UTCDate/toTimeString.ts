@@ -1,4 +1,4 @@
-import padDigit from '../padDigit.js';
+import padDigit from '../utils/padDigit.js';
 
 export default function UTCDateToTimeString(UTC: Date) {
     const UTCHour = padDigit(UTC.getUTCHours());
